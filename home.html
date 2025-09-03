@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>J K Rowling | Author</title>
+  <link rel="stylesheet" href="src/styles.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+
+  <!-- Load Shared Header -->
+  <div id="header-placeholder"></div>
+
+
+  <!-- Main Content -->
+<!-- ...existing code... -->
+<main class="container">
+  <section class="about-author">
+    <div class="author-content">
+      <img src="/jkrowling.jpg" alt="Author Portrait" class="portrait" />
+      <div class="bio-text">
+        <h1>Joanne Rowling</h1>
+        <p>Joanne Rowling, known by her pen name J. K. Rowling, is a British novelist and author of Harry Potter, a seven-volume series about a young wizard. Published from 1997 to 2007, the fantasy novels have sold over 600 million copies, been translated into 84 languages, and spawned a global media franchise including films and video games. She writes Cormoran Strike, an ongoing crime fiction series, under the alias Robert Galbraith.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Books Section -->
+  <section class="featured-books-section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Featured Books</h2>
+        <p>Discover some of J.K. Rowling's most captivating works</p>
+      </div>
+      
+      <div id="featured-books-loading" class="loading-state">
+        <div class="spinner"></div>
+        <p>Loading featured books...</p>
+      </div>
+
+      <div id="featured-books-error" class="error-state" style="display: none;">
+        <p>Unable to load featured books</p>
+        <button onclick="retryLoadFeaturedBooks()" class="btn">Retry</button>
+      </div>
+
+      <div class="featured-books-carousel-wrapper" style="display: none;" id="featured-books-wrapper">
+        <button class="carousel-nav-btn carousel-prev" id="featured-prev" onclick="scrollFeaturedBooks('prev')">
+          <span>‹</span>
+        </button>
+        
+        <div class="featured-books-carousel" id="featured-books-container">
+          <!-- Dynamic book cards will be loaded here -->
+        </div>
+        
+        <button class="carousel-nav-btn carousel-next" id="featured-next" onclick="scrollFeaturedBooks('next')">
+          <span>›</span>
+        </button>
+      </div>
+    </div>
+  </section>
+</main>
+<!-- ...existing code... -->
+  <!-- Back to Top Button -->
+  <button id="backToTop" title="Go to top">↑</button>
+
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>

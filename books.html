@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Books | J K Rowling</title>
+  <link rel="stylesheet" href="src/styles.css"/>
+  <link rel="stylesheet" href="src/books.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Load Shared Header -->
+  <div id="header-placeholder"></div>
+
+  <!-- Main: Books Section Only -->
+  <main class="container">
+    <section class="books-section">
+      <h1>J.K. Rowling's Individual Books</h1>
+      <p>Discover the individual books by J.K. Rowling, showcasing each unique work from her literary career.</p>
+
+      <!-- Search and Filter Controls -->
+      <div class="search-filter-container">
+        <!-- Search Bar -->
+        <div class="search-container">
+          <div class="search-wrapper">
+            <input type="text" id="bookSearch" placeholder="Search books by title, year, or subject..." class="search-input">
+            <button id="clearSearch" class="clear-btn" style="display: none;">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 6h18M8 6V4a2 2 0 012-2h4a2 2 0 012 2v2m3 0v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6h14zM10 11v6M14 11v6"/>
+              </svg>
+            </button>
+          </div>
+          <div id="searchResults" class="search-results"></div>
+        </div>
+
+        <!-- Filter Controls -->
+        <div class="filters-container">
+          <div class="filter-group">
+            <label for="languageFilter">Language:</label>
+            <select id="languageFilter" class="filter-select">
+              <option value="">All Languages</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label for="yearFilter">Publish Date:</label>
+            <select id="yearFilter" class="filter-select">
+              <option value="">All Years</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label for="genreFilter">Genre:</label>
+            <select id="genreFilter" class="filter-select">
+              <option value="">All Genres</option>
+            </select>
+          </div>
+
+          <button id="clearFilters" class="clear-filters-btn">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 6h18M8 6V4a2 2 0 012-2h4a2 2 0 012 2v2m3 0v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6h14zM10 11v6M14 11v6"/>
+            </svg>
+            Clear All Filters
+          </button>
+        </div>
+      </div>
+
+      <!-- Loading State -->
+      <div id="loading" class="loading-state">
+        <div class="spinner"></div>
+        <p>Loading books...</p>
+      </div>
+
+      <!-- Error State -->
+      <div id="error" class="error-state" style="display: none;">
+        <p>Sorry, we couldn't load the books at this time. Please try again later.</p>
+        <button id="retry-btn" class="btn">Retry</button>
+      </div>
+
+      <!-- Books Container -->
+      <div id="books-container" class="books-grid" style="display: none;">
+        <!-- Books will be dynamically loaded here -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Back to Top Button -->
+  <button id="backToTop" title="Go to top">↑</button>
+
+  <!-- Load Scripts -->
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About J K Rowling | Author</title>
+  <link rel="stylesheet" href="src/styles.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Load Shared Header -->
+  <div id="header-placeholder"></div>
+
+  <!-- Main: About Section -->
+<main class="container about-page">
+  <section class="about-author">
+    <div class="author-header">
+      <h1>About J K Rowling</h1>
+      <p class="subtitle">A voice for the quiet spaces between memory and meaning</p>
+    </div>
+
+    <!-- Flex Container for Image + Bio -->
+      <div class="author-content">  <!-- Changed from about-content -->
+        <img src="/jkrowling2.webp" alt="J K Rowling, Author" class="portrait" />
+        <div class="bio-text">
+        <p>
+          J.K. Rowling is one of the world’s most beloved storytellers and the creator of the Harry Potter series, a global phenomenon that has inspired generations of readers. Published between 1997 and 2007, the seven Harry Potter novels have sold over 500 million copies worldwide, been translated into more than 80 languages, and adapted into one of the most successful film franchises in history.          
+        </p>
+
+        <p>
+          Beyond Harry Potter, Rowling has written adult fiction, including The Casual Vacancy (2012), and the Cormoran Strike detective series under the pen name Robert Galbraith. She has also expanded the Wizarding World with screenplays such as Fantastic Beasts and Where to Find Them.
+        </p>
+
+        <p>
+          Rowling is the founder of the charity Lumos, which works to support vulnerable children and end the institutionalization of young people worldwide. She has also been recognized with numerous awards for her contributions to literature and philanthropy.
+        </p>
+
+        <p>
+          When not writing, she divides her time between a coastal village in Maine and a small apartment in Edinburgh, drawing inspiration from the tides, the archives, and long walks with no destination.
+        </p>
+
+        <p>
+          Her work continues to inspire creativity, imagination, and a love of reading across cultures and generations.
+        </p>
+      </div>
+    </div>
+
+    <!-- Other sections below -->
+    <div class="author-quote">
+      <blockquote>
+        “We are not shaped by the loud events alone, but by the quiet ones we carry in silence.”
+        <cite>— J K Rowling</cite>
+      </blockquote>
+    </div>
+
+    <div class="author-philosophy">
+      <h2>My Writing</h2>
+      <p>
+        Happiness can be found, even in the darkest of times, if one only remembers to turn on the light.
+      </p>
+      <p>
+        I just write what I wanted to write. I write what amuses me. It's totally for myself. I never in my wildest dreams expected this popularity.
+      </p>
+    </div>
+  </section>
+</main>
+
+  <!-- Back to Top Button -->
+  <button id="backToTop" title="Go to top">↑</button>
+
+  <!-- Load Header & Scripts -->
+  <script type="module">
+    import { Navigation } from './src/modules/navigation.js';
+    
+    // Initialize navigation
+    const nav = new Navigation();
+    nav.init();
+  </script>
+</body>
+</html>
