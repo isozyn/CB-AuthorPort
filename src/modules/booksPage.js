@@ -58,7 +58,6 @@ export class BooksPageManager {
       searchResults: document.getElementById('searchResults'),
       languageFilter: document.getElementById('languageFilter'),
       yearFilter: document.getElementById('yearFilter'),
-      genreFilter: document.getElementById('genreFilter'),
       clearFiltersBtn: document.getElementById('clearFilters')
     };
   }
