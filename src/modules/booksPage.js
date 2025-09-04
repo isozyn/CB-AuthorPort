@@ -138,8 +138,8 @@ export class BooksPageManager {
       this.displayBooks(data.books);
       this.showBooks();
       
-      // Pre-generate descriptions for better modal performance
-      this.preGenerateDescriptions(this.allBooks.slice(0, 10)); // Pre-generate for first 10 books
+      // Skip pre-generation to avoid API errors
+      // this.preGenerateDescriptions(this.allBooks.slice(0, 10));
       
     } catch (error) {
       console.error('Error fetching books:', error);
@@ -268,7 +268,7 @@ export class BooksPageManager {
     const coverId = book.cover_i;
     const coverUrl = coverId 
       ? `https://covers.openlibrary.org/b/id/${coverId}-L.jpg`
-      : 'https://via.placeholder.com/300x450/f0f0f0/666?text=No+Cover';
+      : 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjQ1MCIgdmlld0JveD0iMCAwIDMwMCA0NTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iNDUwIiBmaWxsPSIjRjBGMEYwIi8+Cjx0ZXh0IHg9IjE1MCIgeT0iMjI1IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTgiIGZpbGw9IiM2NjYiIHRleHQtYW5jaG9yPSJtaWRkbGUiPk5vIENvdmVyPC90ZXh0Pgo8L3N2Zz4K';
 
     const subjects = book.subject ? book.subject.slice(0, 3) : [];
     const subjectsHtml = subjects.length > 0 
@@ -283,13 +283,13 @@ export class BooksPageManager {
     const descriptionDisplay = currentQuery ? this.highlightSearchTerm(description, currentQuery) : escapeHtml(description);
 
     bookDiv.innerHTML = `
-      <img src="${coverUrl}" alt="${escapeHtml(book.title)}" onerror="this.src='https://via.placeholder.com/300x450/f0f0f0/666?text=No+Cover'">
+      <img src="${coverUrl}" alt="${escapeHtml(book.title)}" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjQ1MCIgdmlld0JveD0iMCAwIDMwMCA0NTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iNDUwIiBmaWxsPSIjRjBGMEYwIi8+Cjx0ZXh0IHg9IjE1MCIgeT0iMjI1IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTgiIGZpbGw9IiM2NjYiIHRleHQtYW5jaG9yPSJtaWRkbGUiPk5vIENvdmVyPC90ZXh0Pgo8L3N2Zz4K'">
       <h3>${titleDisplay}</h3>
       <p class="book-year">${book.first_publish_year || 'Unknown'}</p>
       <p class="book-description">${descriptionDisplay}</p>
       ${subjectsHtml}
       <div class="book-actions">
-        <button class="details-btn" onclick="showBookDetails(${escapeHtml(JSON.stringify(book))})">
+        <button class="details-btn">
           <span class="details-icon">ℹ️</span>
           View Details
         </button>

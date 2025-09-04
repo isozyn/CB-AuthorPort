@@ -249,11 +249,11 @@ export async function generateBookDescription(book) {
       return goodreadsDescription;
     }
   } catch (error) {
-    console.log('Goodreads dataset not available, falling back to AI generation');
+    console.log('Goodreads dataset not available, using fallback description');
   }
   
-  // Fallback to AI generation
-  return generateAIDescription(book);
+  // Skip AI generation and use fallback directly to avoid API errors
+  return getFallbackDescription(book);
 }
 
 /**
